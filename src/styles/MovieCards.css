@@ -1,0 +1,63 @@
+.MovieShowsPart {
+  background-color: red;
+}
+
+.MovieCardsContainer {
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+  justify-content: center;
+}
+
+.Cards {
+  background-color: blue;
+  color: orange;
+  width: 300px;
+  text-align: center;
+  position: relative;
+}
+
+.ImageContainer::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  background-color: rgba(2, 2, 2, 0.7);
+  transition: all 1s ease-in-out;
+}
+.ImageContainer:hover::after {
+  transition: all 1s ease-in-out;
+  overflow: visible;
+  height: 200px;
+}
+.ImageContainer::before {
+  content: "";
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: rgba(46, 102, 135, 0.593);
+}
+
+.ImageContainer:hover::before {
+  overflow: visible;
+  height: 100%;
+}
+
+.CardImg {
+  width: 300px;
+  height: 400px;
+}
+
+.CardTitle {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

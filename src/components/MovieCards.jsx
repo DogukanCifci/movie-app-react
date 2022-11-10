@@ -1,20 +1,20 @@
 import React from "react";
-import {
-  CardImg,
-  Cards,
-  CardTitle,
-  MovieCardsContainer,
-} from "../styles/MovieCardsStyles";
-
+import { CardImg } from "../styles/MovieCardsStyles";
+import "../styles/MovieCards.css";
 const MovieCards = ({ item }) => {
-  console.log(item);
+  const { poster_path, title, overview } = item;
   return (
-    <MovieCardsContainer>
-      <Cards>
-        <CardImg src={item.backdrop_path} />
-        <CardTitle>{item.title}</CardTitle>
-      </Cards>
-    </MovieCardsContainer>
+    <div className="MovieCardsContainer">
+      <div className="Cards">
+        <div className="ImageContainer" data-tooltip={overview}>
+          <CardImg
+            className="CardImg"
+            src={`https://image.tmdb.org/t/p/w1280${poster_path}`}
+          />
+        </div>
+        <div className="CardTitle">{title}</div>
+      </div>
+    </div>
   );
 };
 export default MovieCards;
