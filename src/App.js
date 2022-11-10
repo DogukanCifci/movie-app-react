@@ -83,6 +83,7 @@ function App() {
     console.log(user);
   };
 
+  console.log(loginEmail, loginPassword);
   return (
     <ContainerContext.Provider
       value={{
@@ -96,6 +97,8 @@ function App() {
         setRegisterPassword,
         setLoginPassword,
         data,
+        user,
+        loginEmail,
       }}
     >
       <MyRouter />
