@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const MainContainer = styled.div`
-  background-color: aqua;
   width: 100%;
   min-height: 80vh;
 `;

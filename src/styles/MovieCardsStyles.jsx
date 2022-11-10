@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
-export const MovieShowsPart = styled.div`
-  background-color: red;
-`;
+export const MovieShowsPart = styled.div``;
 export const MovieCardsContainer = styled.div`
   background-color: white;
   display: flex;
