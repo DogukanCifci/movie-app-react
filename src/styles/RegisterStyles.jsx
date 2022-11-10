@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-export const LoginContainer = styled.div`
+export const RegisterContainer = styled.div`
   display: flex;
   width: 100%;
-  min-height: 75vh;
+  min-height: 85vh;
 `;
 
 export const LeftImage = styled.img`
@@ -15,14 +15,14 @@ export const MainRightPart = styled.div`
   width: 45%;
 `;
 
-export const LoginHeader = styled.div`
+export const RegisterHeader = styled.div`
   font-size: 3rem;
   color: black;
   height: 20%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  padding-top: 40px;
 `;
 
 export const MainRightDownPart = styled.div`
@@ -35,7 +35,7 @@ export const MainRightDownPart = styled.div`
   justify-content: center;
 `;
 
-export const LoginInput = styled.input`
+export const RegisterInput = styled.input`
   width: 100%;
   height: 40px;
   border-radius: 5px;
@@ -44,18 +44,7 @@ export const LoginInput = styled.input`
   font-size: 16px;
 `;
 
-export const ForgotPassword = styled.div`
-  text-decoration: underline;
-  color: blue;
-  font-size: 1rem;
-  margin-top: 20px;
-  margin-bottom: 25px;
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
-export const LoginButton = styled.button`
+export const RegisterButton = styled.button`
   width: 100%;
   height: 40px;
   background-color: blue;

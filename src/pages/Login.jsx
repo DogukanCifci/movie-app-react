@@ -33,7 +33,7 @@ const Login = () => {
   console.log("Login :", loginEmail);
   return (
     <LoginContainer>
-      <LeftImage src="https://images.pexels.com/photos/14208380/pexels-photo-14208380.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load"></LeftImage>
+      <LeftImage src="https://images.pexels.com/photos/10443212/pexels-photo-10443212.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=400&h=250&fit=crop&crop=focalpoint"></LeftImage>
       <MainRightPart>
         <LoginHeader>
           <h2>Login</h2>
