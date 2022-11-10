@@ -17,21 +17,23 @@ export const ContainerContext = createContext();
 //=======FUNCTION KISMINA GECIS =========
 function App() {
   //========DEGISKENLERIN KISIM ========
-  const url = "";
+  const API_KEY = "2ffb1cad850221d084465c45e6fd0612";
+  const url = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`;
   //========UseState KISIM ========
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [data, setData] = useState([]);
+  const [movieUserSearchInput, setMovieUserSearchInput] = useState("");
   //========DATA CEKME KISMI ========
 
   const getData = async () => {
-    //fetch(url).then((res)=>res.json()).then((data)=>setData(data))
     const veri = await axios.get(url);
-    setData(veri);
+    setData([veri.data]);
+    console.log(movieUserSearchInput);
   };
-
+  console.log(data);
   //======onAuthStateChanged KISMI ========
   const [user, setUser] = useState({});
   //User giris yaptiktan sonra sayfa yenilendiginde userin kaybolmamasi icin bu statei olusuturuyoruz.
@@ -83,7 +85,6 @@ function App() {
     console.log(user);
   };
 
-  console.log(loginEmail, loginPassword);
   return (
     <ContainerContext.Provider
       value={{
@@ -99,6 +100,7 @@ function App() {
         data,
         user,
         loginEmail,
+        setMovieUserSearchInput,
       }}
     >
       <MyRouter />

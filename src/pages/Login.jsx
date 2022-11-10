@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
 import { ContainerContext } from "../App";
 import { signInWithGoogle } from "../auth/Firebase";
 import {
@@ -15,22 +14,15 @@ import {
 
 const Login = () => {
   //Navigate tanimlama kismi
-  const navigate = useNavigate();
+
   //=En yukardaki verileri cagirma kismi
-  const { login, setLoginEmail, setLoginPassword, user, loginEmail } =
+  const { login, setLoginEmail, setLoginPassword } =
     useContext(ContainerContext);
 
   //======Logine tiklandiginda====
   const loginClicked = () => {
     login();
-    if (user.email === loginEmail) {
-      navigate("/");
-    } else {
-      alert("Sorry");
-    }
   };
-  console.log("Giris  : ", user.email);
-  console.log("Login :", loginEmail);
   return (
     <LoginContainer>
       <LeftImage src="https://images.pexels.com/photos/10443212/pexels-photo-10443212.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=400&h=250&fit=crop&crop=focalpoint"></LeftImage>
