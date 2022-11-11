@@ -22,7 +22,7 @@ const MovieCards = ({ item }) => {
             src={`https://image.tmdb.org/t/p/w1280${poster_path}`}
           />
         </div>
-        <div className="CardTitle">{title}</div>
+        <div className="CardTitle">{title}aa</div>
       </div>
     </div>
   );

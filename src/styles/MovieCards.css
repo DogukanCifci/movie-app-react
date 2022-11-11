@@ -11,11 +11,14 @@
 }
 
 .Cards {
-  background-color: blue;
+  background-color: orange;
   color: orange;
   width: 300px;
   text-align: center;
   position: relative;
+}
+.Cards:hover {
+  cursor: pointer;
 }
 
 .ImageContainer::after {
@@ -28,6 +31,7 @@
   overflow: hidden;
   background-color: rgba(2, 2, 2, 0.7);
   transition: all 1s ease-in-out;
+  padding-top: 5px;
 }
 .ImageContainer:hover::after {
   transition: all 1s ease-in-out;
@@ -56,7 +60,9 @@
 }
 
 .CardTitle {
-  color: white;
+  color: #292828;
+  font-weight: 700;
+  font-size: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;

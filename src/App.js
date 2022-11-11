@@ -32,14 +32,24 @@ function App() {
   const url = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`;
   const detailUrl = `https://api.themoviedb.org/3/movie/${filmId}?api_key=${API_KEY}`;
   const videoUrl = `https://api.themoviedb.org/3/movie/${filmId}/videos?api_key=${API_KEY}`;
+  const movieUrl = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${movieUserSearchInput}`;
   //========DATA CEKME KISMI ========
+  useEffect(() => {
+    getData();
+  }, []);
 
   const getData = async () => {
-    const veri = await axios.get(url);
-    setData([veri.data]);
-    console.log(movieUserSearchInput);
+    if (movieUserSearchInput === "") {
+      const veri = await axios.get(url);
+      setData([veri.data]);
+      console.log(movieUserSearchInput);
+    } else {
+      const veri = await axios.get(movieUrl);
+      setData([veri.data]);
+    }
   };
   console.log(data);
+  //Film arama verisi
 
   //...Detayli veriyi id ile cekme fonksiyonu
   const detayliVeriCekme = (gönderilenFilmId) => {
@@ -126,6 +136,7 @@ function App() {
         user,
         loginEmail,
         setMovieUserSearchInput,
+        movieUserSearchInput,
         detayliVeriCekme,
         detaylar,
         videoSrc,

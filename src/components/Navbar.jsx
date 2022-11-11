@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { ContainerContext } from "../App";
 import {
   MenuLink,
   Logo,
@@ -8,10 +10,16 @@ import {
 } from "../styles/NavbarStyle";
 
 const Navbar = () => {
+  const { getData } = useContext(ContainerContext);
+
+  const logoClicked = () => {
+    getData();
+  };
+
   return (
     <NavbarContainer>
       <MenuLink to="/">
-        <Logo>MOVIE APP</Logo>
+        <Logo onClick={logoClicked}>MOVIE APP</Logo>
       </MenuLink>
 
       <NavbarSagKisim>

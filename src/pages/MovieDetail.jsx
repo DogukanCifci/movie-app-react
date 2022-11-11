@@ -3,6 +3,7 @@
 import { useContext } from "react";
 import { useLocation } from "react-router-dom";
 import { ContainerContext } from "../App";
+import Navbar from "../components/Navbar";
 import {
   DetailsPart,
   DownLeftPart,
@@ -22,24 +23,27 @@ const MovieDetail = () => {
   console.log("ITEM : ", filmCard);
   const imgSrc = `https://image.tmdb.org/t/p/w1280${filmCard.poster_path}`;
   return (
-    <MovieDetailContainer>
-      <VideoParts></VideoParts>
-      <DetailsPart>
-        <DownLeftPart>
-          <img src={imgSrc} alt="" />
-        </DownLeftPart>
-        <DownRightPart>
-          <div>
-            <h3>Overview</h3>
-            <p>{filmCard.overview}</p>
-          </div>
-          <div>
-            <p>Release Date : {filmCard.release_date}</p>
-            <p>Rate : {filmCard.vote_average.toFixed(1)} </p>
-          </div>
-        </DownRightPart>
-      </DetailsPart>
-    </MovieDetailContainer>
+    <>
+      <Navbar />
+      <MovieDetailContainer>
+        <VideoParts></VideoParts>
+        <DetailsPart>
+          <DownLeftPart>
+            <img src={imgSrc} alt="" />
+          </DownLeftPart>
+          <DownRightPart>
+            <div>
+              <h3>Overview</h3>
+              <p>{filmCard.overview}</p>
+            </div>
+            <div>
+              <p>Release Date : {filmCard.release_date}</p>
+              <p>Rate : {filmCard.vote_average.toFixed(1)} </p>
+            </div>
+          </DownRightPart>
+        </DetailsPart>
+      </MovieDetailContainer>
+    </>
   );
 };
 export default MovieDetail;
