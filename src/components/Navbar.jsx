@@ -10,7 +10,7 @@ import {
 } from "../styles/NavbarStyle";
 
 const Navbar = () => {
-  const { getData } = useContext(ContainerContext);
+  const { getData, user, logout } = useContext(ContainerContext);
 
   const logoClicked = () => {
     getData();
@@ -23,8 +23,14 @@ const Navbar = () => {
       </MenuLink>
 
       <NavbarSagKisim>
+        <span style={{ color: "white" }} id="userName">
+          {user?.email && user.email}
+        </span>
         <MenuLink to="/login">
           <Login>Login</Login>
+        </MenuLink>
+        <MenuLink to="/login">
+          <Login onClick={logout}>Logout</Login>
         </MenuLink>
         <MenuLink to="/register">
           <Register>Register</Register>

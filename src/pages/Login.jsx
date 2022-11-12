@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { ContainerContext } from "../App";
 import { signInWithGoogle } from "../auth/Firebase";
 import Navbar from "../components/Navbar";
@@ -14,15 +15,18 @@ import {
 } from "../styles/LoginStyle";
 
 const Login = () => {
+  const navigate = useNavigate();
   //Navigate tanimlama kismi
 
   //=En yukardaki verileri cagirma kismi
-  const { login, setLoginEmail, setLoginPassword } =
+  const { login, setLoginEmail, setLoginPassword, user } =
     useContext(ContainerContext);
 
   //======Logine tiklandiginda====
   const loginClicked = () => {
-    login();
+    login(navigate);
+
+    //Dogru girsem de hata veriyor????
   };
   return (
     <>
@@ -73,7 +77,7 @@ const Login = () => {
 
             <ForgotPassword>Forgot Password ?</ForgotPassword>
             <LoginButton onClick={loginClicked}>Login</LoginButton>
-            <LoginButton onClick={signInWithGoogle}>
+            <LoginButton onClick={() => signInWithGoogle(navigate)}>
               Continue with Google
             </LoginButton>
           </MainRightDownPart>

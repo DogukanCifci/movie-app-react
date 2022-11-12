@@ -11,6 +11,7 @@ import {
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import MyRouter from "./router/MyRouter";
+import { useNavigate } from "react-router-dom";
 
 //=====DEGISKENLERIN DIGER COMPONENTLERDE DE GÖZÜKMESI ICIN =======
 export const ContainerContext = createContext();
@@ -48,7 +49,7 @@ function App() {
       setData([veri.data]);
     }
   };
-  console.log(data);
+  //console.log(data);
   //Film arama verisi
 
   //...Detayli veriyi id ile cekme fonksiyonu
@@ -101,15 +102,17 @@ function App() {
   };
 
   //========LOGIN KISMI========
-  const login = async () => {
+  const login = async (navigate) => {
     try {
       const user = await signInWithEmailAndPassword(
         auth,
         loginEmail,
         loginPassword
       );
-      console.log(user);
+      console.log("User Logged in ", user);
+      navigate("/");
     } catch (error) {
+      alert("Yanlis kullanici adi veya sifre!");
       console.log("My Error Message : ==> ", error);
     }
   };
@@ -117,7 +120,13 @@ function App() {
   //========LOGOUT KISMI========
   const logout = async () => {
     await signOut(auth);
-    console.log(user);
+    if (user) {
+      console.log("User logged out", user);
+      setUser("");
+      console.log("USER::::", user);
+    } else {
+      alert("Öncelikle giris yapmalisiniz!");
+    }
   };
 
   return (
