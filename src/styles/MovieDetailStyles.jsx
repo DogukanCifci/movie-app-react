@@ -8,15 +8,14 @@ export const MovieDetailContainer = styled.div`
 export const VideoParts = styled.div`
   width: 70%;
   height: 300px;
-  background-color: blue;
+  background-color: red;
+  opacity: 0.5;
   margin: 0 auto;
 `;
 export const DetailsPart = styled.div`
   display: flex;
-  background-color: purple;
   width: 90%;
   margin: 20px auto;
-
   border: 1px solid gray;
 `;
 
@@ -30,8 +29,11 @@ export const DownLeftPart = styled.div`
 `;
 export const DownRightPart = styled.div`
   width: 70%;
-  background-color: orange;
+  background-color: #ff7c7c;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  color: aliceblue;
+  font-size: 20px;
+  padding: 20px;
 `;

@@ -38,7 +38,7 @@ export const MainRightDownPart = styled.div`
 
 export const LoginInput = styled.input`
   width: 100%;
-  height: 40px;
+  height: 50px;
   border-radius: 5px;
   border: none;
   padding: 5px;
@@ -51,6 +51,9 @@ export const ForgotPassword = styled.div`
   font-size: 1rem;
   margin-top: 20px;
   margin-bottom: 25px;
+  display: flex;
+  width: 200px;
+
   &:hover {
     cursor: pointer;
   }
@@ -70,5 +73,7 @@ export const LoginButton = styled.button`
   &:hover {
     cursor: pointer;
     filter: grayscale(1);
+    color: aqua;
+    font-size: larger;
   }
 `;

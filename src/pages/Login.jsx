@@ -20,7 +20,7 @@ const Login = () => {
   //Navigate tanimlama kismi
 
   //=En yukardaki verileri cagirma kismi
-  const { login, setLoginEmail, setLoginPassword } =
+  const { login, setLoginEmail, setLoginPassword, loginEmail } =
     useContext(ContainerContext);
 
   //======Logine tiklandiginda====
@@ -28,6 +28,12 @@ const Login = () => {
     login(navigate);
 
     //Dogru girsem de hata veriyor????
+  };
+  //===Pass Unutma
+  const forgotPass = () => {
+    loginEmail
+      ? alert("New Password sent to your Email Adress")
+      : alert("You should enter your Email adress firstly");
   };
   return (
     <>
@@ -78,7 +84,9 @@ const Login = () => {
               onKeyDown={(a) => (a.keyCode === 13 ? loginClicked() : undefined)}
             />
 
-            <ForgotPassword>Forgot Password ?</ForgotPassword>
+            <ForgotPassword onClick={forgotPass}>
+              Forgot Password ?
+            </ForgotPassword>
             <LoginButton onClick={loginClicked}>Login</LoginButton>
             <LoginButton onClick={() => signInWithGoogle(navigate)}>
               <FaGoogle
@@ -87,7 +95,7 @@ const Login = () => {
                   marginTop: "3px",
                   fontSize: "1.2rem",
                 }}
-              />{" "}
+              />
               Continue with Google
             </LoginButton>
           </MainRightDownPart>

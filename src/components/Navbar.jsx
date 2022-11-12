@@ -30,7 +30,7 @@ const Navbar = () => {
       </MenuLink>
 
       <NavbarSagKisim>
-        <span style={{ color: "red" }} id="userName">
+        <span style={{ color: "red", fontSize: "20px" }} id="userName">
           {user?.email && user.email}
         </span>
         <MenuLink to="/login">

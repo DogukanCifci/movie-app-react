@@ -33,12 +33,53 @@ const MovieDetail = () => {
           </DownLeftPart>
           <DownRightPart>
             <div>
-              <h3>Overview</h3>
+              <h3
+                style={{
+                  color: "black",
+                  marginBottom: "10px",
+                }}
+              >
+                Overview
+              </h3>
               <p>{filmCard.overview}</p>
             </div>
             <div>
-              <p>Release Date : {filmCard.release_date}</p>
-              <p>Rate : {filmCard.vote_average.toFixed(1)} </p>
+              <p>
+                <span
+                  style={{
+                    color: "black",
+                    fontWeight: "800",
+                    marginRight: "10px",
+                  }}
+                >
+                  Release Date :
+                </span>
+                {filmCard.release_date}
+              </p>
+              <p>
+                <span
+                  style={{
+                    color: "black",
+                    fontWeight: "800",
+                    marginRight: "10px",
+                  }}
+                >
+                  Vote Count :
+                </span>
+                {filmCard.vote_count}
+              </p>
+              <p>
+                <span
+                  style={{
+                    color: "black",
+                    fontWeight: "800",
+                    marginRight: "10px",
+                  }}
+                >
+                  Rate :
+                </span>
+                {filmCard.vote_average.toFixed(1)}{" "}
+              </p>
             </div>
           </DownRightPart>
         </DetailsPart>
