@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const LoginContainer = styled.div`
   display: flex;
   width: 100%;
-  min-height: 75vh;
+  max-height: 88vh;
 `;
 
 export const LeftImage = styled.img`
@@ -11,13 +11,14 @@ export const LeftImage = styled.img`
 `;
 
 export const MainRightPart = styled.div`
-  background-color: lightgray;
+  background-color: #3d3c42;
   width: 45%;
+  border: 2px solid red;
 `;
 
 export const LoginHeader = styled.div`
   font-size: 3rem;
-  color: black;
+  color: white;
   height: 20%;
   display: flex;
   justify-content: center;
@@ -46,7 +47,7 @@ export const LoginInput = styled.input`
 
 export const ForgotPassword = styled.div`
   text-decoration: underline;
-  color: blue;
+  color: red;
   font-size: 1rem;
   margin-top: 20px;
   margin-bottom: 25px;
@@ -57,9 +58,10 @@ export const ForgotPassword = styled.div`
 
 export const LoginButton = styled.button`
   width: 100%;
-  height: 40px;
-  background-color: blue;
+  height: 50px;
+  background-color: red;
   text-align: center;
+  font-size: 1.1rem;
   color: white;
   border: none;
   margin: 15px 0;
