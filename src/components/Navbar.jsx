@@ -9,7 +9,7 @@ import {
   Register,
   Logout,
 } from "../styles/NavbarStyle";
-
+import { FaUser } from "react-icons/fa";
 const Navbar = () => {
   const { getData, user, logout } = useContext(ContainerContext);
 
@@ -20,22 +20,31 @@ const Navbar = () => {
   return (
     <NavbarContainer>
       <MenuLink to="/">
-        <Logo onClick={logoClicked}>MOVIE APP</Logo>
+        <img
+          src="https://logos.textgiraffe.com/logos/logo-name/Dogukan-designstyle-america-m.png"
+          width={130}
+          height={80}
+          alt=""
+        />
+        <Logo onClick={logoClicked}> MOVIE</Logo>
       </MenuLink>
 
       <NavbarSagKisim>
-        <span style={{ color: "white" }} id="userName">
+        <span style={{ color: "red" }} id="userName">
           {user?.email && user.email}
         </span>
         <MenuLink to="/login">
           <Login user={user}>Login</Login>
         </MenuLink>
         <MenuLink to="/login">
-          <Logout onClick={logout}>Logout</Logout>
+          <Logout user={user} onClick={logout}>
+            Logout
+          </Logout>
         </MenuLink>
         <MenuLink to="/register">
           <Register user={user}>Register</Register>
         </MenuLink>
+        <FaUser style={{ color: "white", marginLeft: "10px" }} />
       </NavbarSagKisim>
     </NavbarContainer>
   );

@@ -30,7 +30,7 @@ const Main = () => {
       sendFunction();
       console.log("No problem");
     } else {
-      alert("Film arayabilmeniz icin kayit olmalisiniz!");
+      alert("You have to login to search a film!");
     }
   };
   //======KARTA TIKLANDIGINDA USER CONTROL ======

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const NavbarContainer = styled.div`
-  background-color: blue;
+  background-color: #181818;
   width: 100%;
   height: 100px;
   display: flex;
@@ -17,7 +17,7 @@ export const MenuLink = styled(Link)`
   text-decoration: none;
 `;
 export const Logo = styled.h1`
-  color: white;
+  color: aqua;
 `;
 
 export const NavbarSagKisim = styled.div`
@@ -26,6 +26,7 @@ export const NavbarSagKisim = styled.div`
   gap: 10px;
   justify-content: center;
   align-items: center;
+  margin-right: 20px;
 `;
 
 export const Login = styled.div`
@@ -38,4 +39,5 @@ export const Register = styled.div`
 `;
 export const Logout = styled.div`
   color: white;
+  display: ${({ user }) => (user ? "block" : "none")};
 `;

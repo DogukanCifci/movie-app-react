@@ -13,6 +13,7 @@ import {
   MainRightDownPart,
   MainRightPart,
 } from "../styles/LoginStyle";
+import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -32,7 +33,7 @@ const Login = () => {
     <>
       <Navbar />
       <LoginContainer>
-        <LeftImage src="https://images.pexels.com/photos/10443212/pexels-photo-10443212.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=400&h=250&fit=crop&crop=focalpoint"></LeftImage>
+        <LeftImage src="https://images.pexels.com/photos/13918680/pexels-photo-13918680.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load"></LeftImage>
         <MainRightPart>
           <LoginHeader>
             <h2>Login</h2>
@@ -45,6 +46,7 @@ const Login = () => {
                 fontSize: "2rem",
                 fontWeight: "700",
                 marginBottom: "20px",
+                color: "white",
               }}
             >
               Email
@@ -63,6 +65,7 @@ const Login = () => {
                 fontWeight: "700",
                 marginBottom: "20px",
                 marginTop: "20px",
+                color: "white",
               }}
             >
               Password
@@ -78,6 +81,13 @@ const Login = () => {
             <ForgotPassword>Forgot Password ?</ForgotPassword>
             <LoginButton onClick={loginClicked}>Login</LoginButton>
             <LoginButton onClick={() => signInWithGoogle(navigate)}>
+              <FaGoogle
+                style={{
+                  marginRight: "10px",
+                  marginTop: "3px",
+                  fontSize: "1.2rem",
+                }}
+              />{" "}
               Continue with Google
             </LoginButton>
           </MainRightDownPart>

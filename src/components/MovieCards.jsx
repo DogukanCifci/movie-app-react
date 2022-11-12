@@ -14,7 +14,7 @@ const MovieCards = ({ item }) => {
       navigate("/moviedetail", { state: { item } });
       detayliVeriCekme(item.id);
     } else {
-      alert("Öncelikle Login yapmalisiniz!");
+      alert("You have to Login to see film details!");
     }
   };
   return (
