@@ -11,7 +11,6 @@ import {
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import MyRouter from "./router/MyRouter";
-import { useNavigate } from "react-router-dom";
 
 //=====DEGISKENLERIN DIGER COMPONENTLERDE DE GÖZÜKMESI ICIN =======
 export const ContainerContext = createContext();
@@ -88,15 +87,17 @@ function App() {
   //register olurken en az 6 karakterli password kullanilmali.Default olarak kendiliginden geliyor.
 
   //========REGISTER KISMI ========
-  const register = async () => {
+  const register = async (navigate) => {
     try {
       const user = await createUserWithEmailAndPassword(
         auth,
         registerEmail,
         registerPassword
       );
-      console.log(user);
+      console.log("New Registered User Logged in ", user);
+      navigate("/");
     } catch (error) {
+      alert(error);
       console.log("My Error Message : ==> ", error);
     }
   };

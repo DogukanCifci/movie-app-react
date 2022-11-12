@@ -2,12 +2,18 @@
   background-color: red;
 }
 
+.MovieCardsContainer:hover {
+  transform: scale(1.1);
+  transition: all 0.2s ease-in-out;
+}
 .MovieCardsContainer {
   background-color: white;
   display: flex;
   flex-wrap: wrap;
   margin: 10px;
   justify-content: center;
+  border: 3px solid rgb(150, 32, 32);
+  box-shadow: 5px 5px 5px rgb(26, 26, 25);
 }
 
 .Cards {
@@ -31,7 +37,6 @@
   overflow: hidden;
   background-color: rgba(2, 2, 2, 0.7);
   transition: all 1s ease-in-out;
-  padding-top: 5px;
 }
 .ImageContainer:hover::after {
   transition: all 1s ease-in-out;

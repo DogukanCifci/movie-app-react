@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { ContainerContext } from "../App";
 import Navbar from "../components/Navbar";
 import {
@@ -13,14 +14,14 @@ import {
 
 const Register = () => {
   //Navigate tanimlama kismi
-
+  const navigate = useNavigate();
   //=En yukardaki verileri cagirma kismi
   const { register, setRegisterPassword, setRegisterEmail } =
     useContext(ContainerContext);
 
   //Register clicked
   const registerClicked = () => {
-    register();
+    register(navigate);
   };
 
   return (
@@ -48,6 +49,9 @@ const Register = () => {
               type="text"
               id="registerName"
               placeholder="Please Enter your name..."
+              onKeyDown={(e) =>
+                e.keyCode === 13 ? registerClicked() : undefined
+              }
               required
             />
             <label
@@ -65,6 +69,9 @@ const Register = () => {
               type="text"
               id="registerSurame"
               placeholder="Please Enter your surname..."
+              onKeyDown={(e) =>
+                e.keyCode === 13 ? registerClicked() : undefined
+              }
               required
             />
             <label
@@ -83,6 +90,9 @@ const Register = () => {
               id="registerEmail"
               placeholder="Enter an email adress..."
               onChange={(e) => setRegisterEmail(e.target.value)}
+              onKeyDown={(e) =>
+                e.keyCode === 13 ? registerClicked() : undefined
+              }
             />
             <label
               htmlFor="createPassword"
@@ -100,6 +110,9 @@ const Register = () => {
               id="createPassword"
               placeholder="Enter a password..."
               onChange={(e) => setRegisterPassword(e.target.value)}
+              onKeyDown={(e) =>
+                e.keyCode === 13 ? registerClicked() : undefined
+              }
             />
 
             <RegisterButton onClick={registerClicked}>Register</RegisterButton>

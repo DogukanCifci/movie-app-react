@@ -15,12 +15,25 @@ import {
 import Navbar from "../components/Navbar";
 
 const Main = () => {
-  const { getData, setMovieUserSearchInput, data } =
+  //Dededen Veri Cekme====
+  const { getData, setMovieUserSearchInput, data, user } =
     useContext(ContainerContext);
   console.log(data);
+
   const sendFunction = () => {
     getData();
   };
+
+  //Search Button Onclicked====
+  const searchButtonClicked = () => {
+    if (user) {
+      sendFunction();
+      console.log("No problem");
+    } else {
+      alert("Film arayabilmeniz icin kayit olmalisiniz!");
+    }
+  };
+  //======KARTA TIKLANDIGINDA USER CONTROL ======
 
   return (
     <>
@@ -33,10 +46,10 @@ const Main = () => {
             id="userSearch"
             onChange={(event) => setMovieUserSearchInput(event.target.value)}
             onKeyDown={(element) =>
-              element.keyCode === 13 ? sendFunction() : undefined
+              element.keyCode === 13 ? searchButtonClicked() : undefined
             }
           />
-          <SearchButton onClick={sendFunction}>Search</SearchButton>
+          <SearchButton onClick={searchButtonClicked}>Search</SearchButton>
         </MovieSearchPart>
         <MovieShowsPart>
           {data.map((e, index) => (

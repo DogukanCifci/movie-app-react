@@ -19,7 +19,7 @@ const Login = () => {
   //Navigate tanimlama kismi
 
   //=En yukardaki verileri cagirma kismi
-  const { login, setLoginEmail, setLoginPassword, user } =
+  const { login, setLoginEmail, setLoginPassword } =
     useContext(ContainerContext);
 
   //======Logine tiklandiginda====

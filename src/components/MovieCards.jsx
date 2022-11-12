@@ -7,11 +7,15 @@ import { ContainerContext } from "../App";
 const MovieCards = ({ item }) => {
   const { poster_path, title, overview } = item;
   const navigate = useNavigate();
-  const { detayliVeriCekme } = useContext(ContainerContext);
+  const { detayliVeriCekme, user } = useContext(ContainerContext);
   //APP.JS'E GÖNDERME FONKSIYONU ve id ile detayli veri cekme islemi
   const detailsClicked = () => {
-    navigate("/moviedetail", { state: { item } });
-    detayliVeriCekme(item.id);
+    if (user) {
+      navigate("/moviedetail", { state: { item } });
+      detayliVeriCekme(item.id);
+    } else {
+      alert("Öncelikle Login yapmalisiniz!");
+    }
   };
   return (
     <div className="MovieCardsContainer" onClick={detailsClicked}>
