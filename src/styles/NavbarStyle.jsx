@@ -30,7 +30,12 @@ export const NavbarSagKisim = styled.div`
 
 export const Login = styled.div`
   color: white;
+  display: ${({ user }) => (user ? "none" : "block")};
 `;
 export const Register = styled.div`
+  color: white;
+  display: ${({ user }) => (user ? "none" : "block")};
+`;
+export const Logout = styled.div`
   color: white;
 `;

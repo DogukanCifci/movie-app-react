@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Footer from "../components/Footer";
 
 import Login from "../pages/Login";
 import Main from "../pages/Main";
@@ -16,8 +15,6 @@ const MyRouter = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Routes>
-
-        <Footer />
       </BrowserRouter>
     </div>
   );

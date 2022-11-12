@@ -126,7 +126,7 @@ function App() {
       setUser("");
       console.log("USER::::", user);
     } else {
-      alert("Öncelikle giris yapmalisiniz!");
+      console.log("signOutta hata olustu");
     }
   };
 

@@ -7,6 +7,7 @@ import {
   NavbarSagKisim,
   Login,
   Register,
+  Logout,
 } from "../styles/NavbarStyle";
 
 const Navbar = () => {
@@ -27,13 +28,13 @@ const Navbar = () => {
           {user?.email && user.email}
         </span>
         <MenuLink to="/login">
-          <Login>Login</Login>
+          <Login user={user}>Login</Login>
         </MenuLink>
         <MenuLink to="/login">
-          <Login onClick={logout}>Logout</Login>
+          <Logout onClick={logout}>Logout</Logout>
         </MenuLink>
         <MenuLink to="/register">
-          <Register>Register</Register>
+          <Register user={user}>Register</Register>
         </MenuLink>
       </NavbarSagKisim>
     </NavbarContainer>
