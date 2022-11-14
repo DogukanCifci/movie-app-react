@@ -1,4 +1,6 @@
 //IMPORT KISIMLARI
+import { ToastContainer } from "react-toastify";
+//index.jste toastify css kismini da import ettik
 import "./App.css";
 import { auth } from "./auth/Firebase";
 import { signInWithGoogle } from "./auth/Firebase";
@@ -11,6 +13,11 @@ import {
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import MyRouter from "./router/MyRouter";
+import {
+  toastErrorNotify,
+  toastSuccessNotify,
+  toastWarnNotify,
+} from "./helpers/Toastify";
 
 //=====DEGISKENLERIN DIGER COMPONENTLERDE DE GÖZÜKMESI ICIN =======
 export const ContainerContext = createContext();
@@ -51,7 +58,6 @@ function App() {
   //...Detayli veriyi id ile cekme fonksiyonu
   const detayliVeriCekme = (gönderilenFilmId) => {
     setFilmId(gönderilenFilmId);
-    // console.log(filmId); ==> Neden Gözükmüyor ????
   };
 
   //======onAuthStateChanged KISMI ========
@@ -79,11 +85,12 @@ function App() {
         registerEmail,
         registerPassword
       );
-      console.log("New Registered User Logged in ", user);
+      //console.log("New Registered User Logged in ", user);
+      toastSuccessNotify("You registered succesfully!");
       navigate("/");
-    } catch (error) {
-      alert(error);
-      console.log("My Error Message : ==> ", error);
+    } catch (err) {
+      toastErrorNotify(err.message);
+      console.log("My Error Message : ==> ", err);
     }
   };
 
@@ -96,9 +103,10 @@ function App() {
         loginPassword
       );
       console.log("User Logged in ", user);
+      toastSuccessNotify("You logged in succesfully!");
       navigate("/");
     } catch (error) {
-      alert("Yanlis kullanici adi veya sifre!");
+      toastErrorNotify("Yanlis kullanici adi veya sifre!");
       console.log("My Error Message : ==> ", error);
     }
   };
@@ -108,9 +116,11 @@ function App() {
     await signOut(auth);
     if (user) {
       console.log("User logged out", user);
+      toastWarnNotify("You logged out successfully!");
       setUser("");
       console.log("USER::::", user);
     } else {
+      toastErrorNotify("signOutta hata olustu");
       console.log("signOutta hata olustu");
     }
   };
@@ -135,6 +145,7 @@ function App() {
         detayliVeriCekme,
       }}
     >
+      <ToastContainer />
       <MyRouter />
     </ContainerContext.Provider>
   );
