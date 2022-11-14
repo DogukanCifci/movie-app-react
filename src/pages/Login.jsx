@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { ContainerContext } from "../App";
-import { signInWithGoogle } from "../auth/Firebase";
+import { forgotPassword, signInWithGoogle } from "../auth/Firebase";
 import Navbar from "../components/Navbar";
 import {
   ForgotPassword,
@@ -31,9 +31,7 @@ const Login = () => {
   };
   //===Pass Unutma
   const forgotPass = () => {
-    loginEmail
-      ? alert("New Password sent to your Email Adress")
-      : alert("You should enter your Email adress firstly");
+    forgotPassword(loginEmail);
   };
   return (
     <>

@@ -1,6 +1,11 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import {
+  getAuth,
+  GoogleAuthProvider,
+  sendPasswordResetEmail,
+  signInWithPopup,
+} from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -35,5 +40,16 @@ export const signInWithGoogle = (navigate) => {
     })
     .catch((error) => {
       console.log(error);
+    });
+};
+
+//FORGOT PASSWORD
+export const forgotPassword = (email) => {
+  sendPasswordResetEmail(auth, email)
+    .then(() => {
+      alert("Please check your email");
+    })
+    .catch((error) => {
+      alert(error.message);
     });
 };

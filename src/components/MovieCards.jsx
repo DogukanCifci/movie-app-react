@@ -10,9 +10,10 @@ const MovieCards = ({ item }) => {
   const navigate = useNavigate();
 
   const toDetails = () => {
-    user
-      ? navigate("/moviedetail/" + id)
-      : alert("You have to login firstly to see the details of films");
+    if (!user) {
+      alert("You have to login firstly to see film details");
+    }
+    navigate("/moviedetail/" + id);
   };
   return (
     <div className="MovieCardsContainer" onClick={toDetails}>
