@@ -1,8 +1,7 @@
 //import axios from "axios";
 
-import { useContext } from "react";
-import { useLocation } from "react-router-dom";
-import { ContainerContext } from "../App";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import {
   DetailsPart,
@@ -12,24 +11,53 @@ import {
   VideoParts,
 } from "../styles/MovieDetailStyles";
 const MovieDetail = () => {
-  //En büyük dededen veri alma
-  const { detaylar, videoSrc } = useContext(ContainerContext);
-  //Tiklanan filmin bilgilerini babadan state ile gönderdik
-  const location = useLocation();
-  const filmCard = location.state.item;
-  console.log(filmCard);
-  console.log("DETAYLAR : ", detaylar);
-  console.log(videoSrc);
-  console.log("ITEM : ", filmCard);
-  const imgSrc = `https://image.tmdb.org/t/p/w1280${filmCard.poster_path}`;
+  const [videoKey, setVideoKey] = useState("");
+  const [movieDetails, setMovieDetails] = useState([]);
+
+  const { id } = useParams();
+
+  //======VERI cekme islemi
+  useEffect(() => {
+    fetch(detailUrl)
+      .then((res) => res.json())
+      .then((data) => setMovieDetails(data));
+
+    fetch(videoUrl)
+      .then((res) => res.json())
+      .then((data) => setVideoKey(data.results[0].key));
+  }, []);
+  console.log("VIDEO Key", videoKey);
+  const { overview, release_date, vote_count, vote_average, poster_path } =
+    movieDetails;
+  console.log(movieDetails);
+  //DEGISKENLER-URLs====
+  const API_KEY = process.env.REACT_APP_TMDB_KEY;
+  const videoUrl = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}`;
+  const detailUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`;
+  const ImgSrc = `https://image.tmdb.org/t/p/w1280${poster_path}`;
+  const videoSrc = `https://www.youtube.com/embed/${videoKey}?autoplay=1&mute=1`;
   return (
     <>
       <Navbar />
       <MovieDetailContainer>
-        <VideoParts></VideoParts>
+        <VideoParts>
+          {videoKey ? (
+            <iframe
+              width="560"
+              height="315"
+              src={videoSrc}
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          ) : (
+            ""
+          )}
+        </VideoParts>
         <DetailsPart>
           <DownLeftPart>
-            <img src={imgSrc} alt="" />
+            <img src={ImgSrc} alt="" />
           </DownLeftPart>
           <DownRightPart>
             <div>
@@ -41,7 +69,7 @@ const MovieDetail = () => {
               >
                 Overview
               </h3>
-              <p>{filmCard.overview}</p>
+              <p>{overview}</p>
             </div>
             <div>
               <p>
@@ -54,7 +82,7 @@ const MovieDetail = () => {
                 >
                   Release Date :
                 </span>
-                {filmCard.release_date}
+                {release_date}
               </p>
               <p>
                 <span
@@ -66,7 +94,7 @@ const MovieDetail = () => {
                 >
                   Vote Count :
                 </span>
-                {filmCard.vote_count}
+                {vote_count}
               </p>
               <p>
                 <span
@@ -78,7 +106,7 @@ const MovieDetail = () => {
                 >
                   Rate :
                 </span>
-                {filmCard.vote_average.toFixed(1)}{" "}
+                {vote_average}
               </p>
             </div>
           </DownRightPart>

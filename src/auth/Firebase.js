@@ -4,12 +4,12 @@ import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyANVuxHAs7YPTShHurhbd5C_nr0myWbAW0",
-  authDomain: "movie-app-42f80.firebaseapp.com",
-  projectId: "movie-app-42f80",
-  storageBucket: "movie-app-42f80.appspot.com",
-  messagingSenderId: "148476754574",
-  appId: "1:148476754574:web:b8d6039b847dae6f87e7df",
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId,
 };
 
 // Initialize Firebase

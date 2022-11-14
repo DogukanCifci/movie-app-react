@@ -6,10 +6,9 @@ export const MovieDetailContainer = styled.div`
 `;
 
 export const VideoParts = styled.div`
+  text-align: center;
   width: 70%;
   height: 300px;
-  background-color: red;
-  opacity: 0.5;
   margin: 0 auto;
 `;
 export const DetailsPart = styled.div`
