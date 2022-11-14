@@ -24,15 +24,12 @@ function App() {
   const [data, setData] = useState([]);
   const [movieUserSearchInput, setMovieUserSearchInput] = useState("");
   const [filmId, setFilmId] = useState("");
-  const [detaylar, setDetaylar] = useState([]);
-  const [videoSrc, setVideoSrc] = useState([]);
 
   //========DEGISKENLERIN KISIM ========
-  const API_KEY = "2ffb1cad850221d084465c45e6fd0612";
+  const API_KEY = process.env.REACT_APP_TMDB_KEY;
   const url = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`;
-  const detailUrl = `https://api.themoviedb.org/3/movie/${filmId}?api_key=${API_KEY}`;
-  const videoUrl = `https://api.themoviedb.org/3/movie/${filmId}/videos?api_key=${API_KEY}`;
   const movieUrl = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${movieUserSearchInput}`;
+
   //========DATA CEKME KISMI ========
   useEffect(() => {
     getData();
@@ -56,18 +53,6 @@ function App() {
     setFilmId(gönderilenFilmId);
     // console.log(filmId); ==> Neden Gözükmüyor ????
   };
-
-  useEffect(() => {
-    fetch(detailUrl)
-      .then((res) => res.json())
-      .then((data) => setDetaylar(data));
-  }, [detailUrl]);
-
-  useEffect(() => {
-    fetch(videoUrl)
-      .then((res) => res.json())
-      .then((data) => setVideoSrc(data));
-  }, [videoUrl]);
 
   //======onAuthStateChanged KISMI ========
   const [user, setUser] = useState({});
@@ -148,8 +133,6 @@ function App() {
         setMovieUserSearchInput,
         movieUserSearchInput,
         detayliVeriCekme,
-        detaylar,
-        videoSrc,
       }}
     >
       <MyRouter />
