@@ -5,7 +5,7 @@ import { ContainerContext } from "../App";
 import { useNavigate } from "react-router-dom";
 
 const MovieCards = ({ item }) => {
-  const { poster_path, title, overview, id } = item;
+  const { poster_path, title, overview, id, vote_average } = item;
   const { user } = useContext(ContainerContext);
   const navigate = useNavigate();
 
@@ -25,6 +25,20 @@ const MovieCards = ({ item }) => {
           />
         </div>
         <div className="CardTitle">{title}</div>
+        {user ? (
+          <div
+            style={
+              vote_average > 7
+                ? { backgroundColor: "green" }
+                : { backgroundColor: "red" }
+            }
+            className="imdb"
+          >
+            {vote_average}
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );

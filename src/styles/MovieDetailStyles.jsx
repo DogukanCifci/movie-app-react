@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const MovieDetailContainer = styled.div`
   min-height: 80vh;
   padding-top: 20px;
+  background-color: #292e49;
 `;
 
 export const VideoParts = styled.div`
@@ -20,7 +22,6 @@ export const DetailsPart = styled.div`
 
 export const DownLeftPart = styled.div`
   width: 30%;
-  background-color: aquamarine;
   img {
     width: 100%;
     height: 100%;
@@ -28,11 +29,17 @@ export const DownLeftPart = styled.div`
 `;
 export const DownRightPart = styled.div`
   width: 70%;
-  background-color: #ff7c7c;
+  background-color: #707d9d;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  color: aliceblue;
+  color: #fcf9bf;
   font-size: 20px;
   padding: 20px;
+`;
+
+export const MyLink = styled(Link)`
+  color: #76c893;
+  font-weight: 700;
+  margin: 0 auto;
 `;

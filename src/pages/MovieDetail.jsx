@@ -8,6 +8,7 @@ import {
   DownLeftPart,
   DownRightPart,
   MovieDetailContainer,
+  MyLink,
   VideoParts,
 } from "../styles/MovieDetailStyles";
 const MovieDetail = () => {
@@ -35,7 +36,7 @@ const MovieDetail = () => {
   const videoUrl = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}`;
   const detailUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`;
   const ImgSrc = `https://image.tmdb.org/t/p/w1280${poster_path}`;
-  const videoSrc = `https://www.youtube.com/embed/${videoKey}?autoplay=1&mute=1`;
+  const videoSrc = `https://www.youtube.com/embed/${videoKey}?autoplay=1&mute=0`;
   return (
     <>
       <Navbar />
@@ -43,13 +44,13 @@ const MovieDetail = () => {
         <VideoParts>
           {videoKey ? (
             <iframe
-              width="560"
+              width="660"
               height="315"
               src={videoSrc}
               title="YouTube video player"
-              frameborder="0"
+              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
+              allowFullScreen
             ></iframe>
           ) : (
             ""
@@ -108,6 +109,7 @@ const MovieDetail = () => {
                 </span>
                 {vote_average}
               </p>
+              <MyLink to={-1}>Go Back</MyLink>
             </div>
           </DownRightPart>
         </DetailsPart>
